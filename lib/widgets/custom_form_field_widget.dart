@@ -5,8 +5,9 @@ class CustomFormFieldWidget extends StatefulWidget {
   final formLabel;
   final validatorError;
   final formType;
+  final updateFormValue;
 
-  CustomFormFieldWidget(this.formLabel, this.validatorError, this.formType);
+  CustomFormFieldWidget(this.formLabel, this.validatorError, this.formType, this.updateFormValue);
 
   @override
   CustomFormFieldWidgetState createState() => CustomFormFieldWidgetState();
@@ -14,10 +15,15 @@ class CustomFormFieldWidget extends StatefulWidget {
 
 class CustomFormFieldWidgetState extends State<CustomFormFieldWidget> {
   bool _isObscure = true;
+  final formController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: formController,
+      onChanged: (formValue) {
+
+      },
       decoration: new InputDecoration(
           labelText: widget.formLabel,
           labelStyle: TextStyle(color: Colors.white),

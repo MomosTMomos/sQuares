@@ -22,7 +22,7 @@ class LoginPageState extends State<LoginPage> {
               child: Container(
                 width: 1000,
                 height: 1080,
-                child: Image.asset('assets/images/app_background.png', fit: BoxFit.fitWidth, color: Colors.deepPurple,)
+                child: Image.asset('assets/images/app_background.png', fit: BoxFit.fitWidth, color: Colors.deepPurple[300],)
               ),
             ),
           ),

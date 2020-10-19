@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:squares/firebase_controller.dart';
 import 'package:squares/widgets/custom_form_field_widget.dart';
 import 'package:squares/widgets/custom_login_button.dart';
 
@@ -9,12 +10,16 @@ class FrontLoginWidget extends StatefulWidget {
 }
 
 class FrontLoginWidgetState extends State<FrontLoginWidget> {
+  var emailField = "";
+  var passwordField = "";
+  var loginResult = false;
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.3),
+            horizontal: MediaQuery.of(context).size.width * 0.31),
         child: Container(
           decoration: BoxDecoration(
               color: Colors.deepPurple,
@@ -43,26 +48,32 @@ class FrontLoginWidgetState extends State<FrontLoginWidget> {
                       horizontal: MediaQuery.of(context).size.width * 0.075,
                       vertical: 7.5),
                   child: CustomFormFieldWidget(
-                      'User', 'This field cannot be null.', "Text"),
+                      'User',
+                      'This field cannot be null.',
+                      "Text",
+                      updateEmailFormValue),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.075,
                       vertical: 7.5),
                   child: CustomFormFieldWidget(
-                      'Password', 'This field cannot be null.', "Password"),
+                      'Password',
+                      'This field cannot be null.',
+                      "Password",
+                      updatePasswordFormValue),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Align(
                       alignment: Alignment.center,
-                      child: Text("Forgot password? Recover it here!")),
+                      child: Text("Forgot password? Recover it here!", style: TextStyle(color: Colors.white),)),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.075,
                   ),
-                  child: CustomLoginButton('LOGIN'),
+                  child: CustomLoginButton('LOGIN', submit),
                 )
               ],
             ),
@@ -70,5 +81,28 @@ class FrontLoginWidgetState extends State<FrontLoginWidget> {
         ),
       ),
     );
+  }
+
+  updateEmailFormValue(value) {
+    setState(() {
+      emailField = value;
+    });
+  }
+
+  updatePasswordFormValue(value) {
+    setState(() {
+      passwordField = value;
+    });
+  }
+
+  submit() {
+    FirebaseController firebaseController = FirebaseController();
+    firebaseController.login(emailField, passwordField).then((value) => () {
+          setState(() {
+            loginResult = value;
+
+            ///TODO Navigate to main page.
+          });
+        });
   }
 }

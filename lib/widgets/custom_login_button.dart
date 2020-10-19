@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class CustomLoginButton extends StatefulWidget {
   final buttonText;
+  final submit;
 
-  CustomLoginButton(this.buttonText);
+  CustomLoginButton(this.buttonText, this.submit);
 
   @override
   CustomLoginButtonState createState() => CustomLoginButtonState();
@@ -15,17 +16,16 @@ class CustomLoginButtonState extends State<CustomLoginButton> {
   Widget build(BuildContext context) {
     return RaisedButton(
       elevation: 5,
-      onPressed: () {},
+      onPressed: () {
+        // ignore: unnecessary_statements
+        widget.submit();
+      },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
       padding: const EdgeInsets.all(0.0),
       child: Ink(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Colors.deepPurpleAccent,
-              Colors.purple
-            ]
-          ),
+          gradient:
+              LinearGradient(colors: [Colors.deepPurpleAccent, Colors.purple]),
           borderRadius: BorderRadius.all(Radius.circular(80.0)),
         ),
         child: Container(
