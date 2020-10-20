@@ -22,7 +22,7 @@ class CustomFormFieldWidgetState extends State<CustomFormFieldWidget> {
     return TextFormField(
       controller: formController,
       onChanged: (formValue) {
-
+        widget.updateFormValue(formValue);
       },
       decoration: new InputDecoration(
           labelText: widget.formLabel,
