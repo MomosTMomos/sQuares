@@ -1,4 +1,4 @@
-# squares
+# sQuares
 
 A new Flutter application.
 
