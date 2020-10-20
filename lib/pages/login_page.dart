@@ -20,9 +20,9 @@ class LoginPageState extends State<LoginPage> {
             child: Opacity(
               opacity: 0.9,
               child: Container(
-                width: 1000,
-                height: 1080,
-                child: Image.asset('assets/images/app_background.png', fit: BoxFit.fitWidth, color: Colors.deepPurple,)
+                width: 1920,
+                height: 2000,
+                child: Image.asset('assets/images/app_background.png', fit: BoxFit.cover, color: Colors.deepPurple[300],)
               ),
             ),
           ),

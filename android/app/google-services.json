@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "42448317927",
+    "firebase_url": "https://squares-12108.firebaseio.com",
+    "project_id": "squares-12108",
+    "storage_bucket": "squares-12108.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42448317927:android:48c3792f52f901c3012142",
+        "android_client_info": {
+          "package_name": "com.joe02.squares"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42448317927-i20bp7qk0bnh2ng7ohc7vv5i2cf1s9ja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM2CYcLpTdNLfxGlzEzMTd7322Zr2hmI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42448317927-i20bp7qk0bnh2ng7ohc7vv5i2cf1s9ja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
